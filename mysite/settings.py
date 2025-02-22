@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'first_app.apps.FirstAppConfig', # install my first_app in django project and tell the config file path of first_app 
 ]
 
 MIDDLEWARE = [
