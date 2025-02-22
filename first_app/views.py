@@ -5,11 +5,15 @@ from .models import ToDoList, Item
 
 # Create your views here.
 def index(response):
-    t = ToDoList.objects.get(name="Take")
+    ls = ToDoList(name="take")
+    ls.save()
 
-    item = t.item_set.create(text="django", complete=False)
+    item = ls.item_set.create(text="django", complete=False)
+    item = ls.item_set.create(text="html", complete=False)
+    item = ls.item_set.create(text="css", complete=True)
+    item = ls.item_set.create(text="javaScript", complete=False)
 
-    return HttpResponse("<h1>this is %s page</h1>" % item)
+    return render(response, "first_app/list.html", {"ls": ls})
 
 
 def about(response, id):
